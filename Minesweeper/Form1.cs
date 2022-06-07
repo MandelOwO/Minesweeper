@@ -15,6 +15,7 @@ namespace Minesweeper
         public Form1()
         {
             InitializeComponent();
+            
         }
 
     }
