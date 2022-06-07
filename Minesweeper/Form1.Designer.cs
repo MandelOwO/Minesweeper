@@ -29,34 +29,36 @@ namespace Minesweeper
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.GameField = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.GameField)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // GameField
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(109, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.GameField.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.GameField.Location = new System.Drawing.Point(98, 45);
+            this.GameField.Name = "GameField";
+            this.GameField.Size = new System.Drawing.Size(562, 362);
+            this.GameField.TabIndex = 1;
+            this.GameField.TabStop = false;
+            this.GameField.Paint += new System.Windows.Forms.PaintEventHandler(this.GameField_Paint);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 461);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(763, 442);
+            this.Controls.Add(this.GameField);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameField)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox GameField;
     }
 }
 

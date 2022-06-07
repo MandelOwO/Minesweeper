@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Minesweeper
 {
-    class Field
+    public class Field
     {
-        public int Xindex { get; set; }
-        public int Yindex { get; set; }
+        public int IndexX { get; set; }
+        public int IndexY { get; set; }
+        public int PositionX { get; set; }
+        public int PositionY { get; set; }
+        public int Size { get; set; } = 20;
+        public bool IsFlag { get; set; }
+        public int SurroundingMines { get; set; }
+
 
     }
 }

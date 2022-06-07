@@ -10,21 +10,18 @@ using System.Windows.Forms;
 
 namespace Minesweeper
 {
-    public partial class Form1 : Form
+    public partial class StartWindow : Form
     {
-        public Game Game { get; set; }
+        public GameSetup GameSetup { get; set; }
 
-        public Form1()
+        public StartWindow()
         {
             InitializeComponent();
-            this.GameField.Width = 100;
-            this.GameField.Height = 100;
         }
 
-        private void GameField_Paint(object sender, PaintEventArgs e)
+        private void BtnStart_Click(object sender, EventArgs e)
         {
 
         }
-
     }
 }
