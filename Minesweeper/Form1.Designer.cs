@@ -37,7 +37,7 @@ namespace Minesweeper
             // GameField
             // 
             this.GameField.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.GameField.Location = new System.Drawing.Point(12, 50);
+            this.GameField.Location = new System.Drawing.Point(12, 58);
             this.GameField.Name = "GameField";
             this.GameField.Size = new System.Drawing.Size(562, 362);
             this.GameField.TabIndex = 1;
@@ -46,25 +46,23 @@ namespace Minesweeper
             // 
             // BtnRestart
             // 
-            this.BtnRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnRestart.Image = global::Minesweeper.Properties.Resources.Smile_30x30;
-            this.BtnRestart.Location = new System.Drawing.Point(248, 12);
+            this.BtnRestart.Location = new System.Drawing.Point(260, 12);
             this.BtnRestart.Name = "BtnRestart";
-            this.BtnRestart.Size = new System.Drawing.Size(30, 30);
+            this.BtnRestart.Size = new System.Drawing.Size(40, 40);
             this.BtnRestart.TabIndex = 3;
             this.BtnRestart.UseVisualStyleBackColor = true;
-            this.BtnRestart.Click += new System.EventHandler(this.BtnRestart_Click);
+            this.BtnRestart.Click += new System.EventHandler(this.BtnRestart_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 442);
+            this.ClientSize = new System.Drawing.Size(582, 442);
             this.Controls.Add(this.BtnRestart);
             this.Controls.Add(this.GameField);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GameField)).EndInit();
             this.ResumeLayout(false);
 

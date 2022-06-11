@@ -12,8 +12,11 @@ namespace Minesweeper
 {
     public partial class Form1 : Form
     {
-        public Game Game { get; set; }
-        public int Difficulty { get; set; }
+        private Game Game { get; set; }
+        private int Difficulty { get; set; }
+        private int GameWidth { get; set; }
+        private int GameHeight { get; set; }
+
         private const int EASYWIDTH = 9;
         private const int EASYHEIGHT = 9;
         private const int MEDIUWIDTH = 16;
@@ -24,57 +27,65 @@ namespace Minesweeper
         public Form1()
         {
             InitializeComponent();
+            ShowSettingsDialog();
+
         }
 
         private void GameField_Paint(object sender, PaintEventArgs e)
         {
-
+            Game.Draw(e.Graphics);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            ShowSettingsDialog();
-        }
-
-        public void ShowSettingsDialog()
+        private void ShowSettingsDialog()
         {
             StartWindow settings = new StartWindow();
             if (settings.ShowDialog() == DialogResult.OK)
             {
                 Difficulty = settings.Difficulty;
             }
-            else if (settings.ShowDialog() == DialogResult.Cancel)
+            else
             {
                 Application.Exit();
             }
             ResizeWindow();
+            Game = new Game(GameWidth, GameHeight, Difficulty);
+            GameField.Refresh();
         }
 
-        public void ResizeWindow()
+        private void ResizeWindow()
         {
-            if (Difficulty == 1)
+            switch (Difficulty)
             {
-                GameField.Height = EASYHEIGHT * Field.Size;
-                GameField.Width = EASYWIDTH * Field.Size;
-            }
-            else if (Difficulty == 2)
-            {
-                GameField.Height = MEDIUHEIGHT * Field.Size;
-                GameField.Width = MEDIUWIDTH * Field.Size;
-            }
-            else if (Difficulty == 3)
-            {
-                GameField.Height = HARDHEIGHT * Field.Size;
-                GameField.Width = HARDWIDTH * Field.Size;
-            }
+                case 1:
+                    GameField.Height = EASYHEIGHT * Field.Size + 1;
+                    GameField.Width = EASYWIDTH * Field.Size + 1;
 
-            BtnRestart.Location = new Point(GameField.Width / 2, 12);
+                    GameHeight = EASYHEIGHT;
+                    GameWidth = EASYWIDTH;
+                    break;
+                case 2:
+                    GameField.Height = MEDIUHEIGHT * Field.Size + 1;
+                    GameField.Width = MEDIUWIDTH * Field.Size + 1;
+
+                    GameHeight = MEDIUHEIGHT;
+                    GameWidth = MEDIUWIDTH;
+                    break;
+                case 3:
+                    GameField.Height = HARDHEIGHT * Field.Size + 1;
+                    GameField.Width = HARDWIDTH * Field.Size + 1;
+
+                    GameHeight = HARDHEIGHT;
+                    GameWidth = HARDWIDTH;
+                    break;
+            }
+            BtnRestart.Location = new Point(GameField.Width / 2 - 10, 12);
 
             this.Height = GameField.Height + 100;
             this.Width = GameField.Width + 40;
+
         }
 
-        private void BtnRestart_Click(object sender, EventArgs e)
+        private void BtnRestart_Click_1(object sender, EventArgs e)
         {
             ShowSettingsDialog();
         }
