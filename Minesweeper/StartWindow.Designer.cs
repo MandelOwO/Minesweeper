@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartWindow));
             this.RbtnEasy = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.RbtnMedium = new System.Windows.Forms.RadioButton();
@@ -41,9 +42,9 @@
             this.RbtnEasy.AutoSize = true;
             this.RbtnEasy.Location = new System.Drawing.Point(24, 40);
             this.RbtnEasy.Name = "RbtnEasy";
-            this.RbtnEasy.Size = new System.Drawing.Size(48, 19);
+            this.RbtnEasy.Size = new System.Drawing.Size(77, 19);
             this.RbtnEasy.TabIndex = 1;
-            this.RbtnEasy.Text = "Easy";
+            this.RbtnEasy.Text = "Easy (9x9)";
             this.RbtnEasy.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -61,10 +62,10 @@
             this.RbtnMedium.Checked = true;
             this.RbtnMedium.Location = new System.Drawing.Point(24, 65);
             this.RbtnMedium.Name = "RbtnMedium";
-            this.RbtnMedium.Size = new System.Drawing.Size(70, 19);
+            this.RbtnMedium.Size = new System.Drawing.Size(111, 19);
             this.RbtnMedium.TabIndex = 1;
             this.RbtnMedium.TabStop = true;
-            this.RbtnMedium.Text = "Medium";
+            this.RbtnMedium.Text = "Medium (16x16)";
             this.RbtnMedium.UseVisualStyleBackColor = true;
             // 
             // RbtnHard
@@ -72,9 +73,9 @@
             this.RbtnHard.AutoSize = true;
             this.RbtnHard.Location = new System.Drawing.Point(24, 90);
             this.RbtnHard.Name = "RbtnHard";
-            this.RbtnHard.Size = new System.Drawing.Size(51, 19);
+            this.RbtnHard.Size = new System.Drawing.Size(92, 19);
             this.RbtnHard.TabIndex = 1;
-            this.RbtnHard.Text = "Hard";
+            this.RbtnHard.Text = "Hard (32x16)";
             this.RbtnHard.UseVisualStyleBackColor = true;
             // 
             // BtnStart
@@ -108,8 +109,8 @@
             this.Controls.Add(this.RbtnHard);
             this.Controls.Add(this.RbtnMedium);
             this.Controls.Add(this.RbtnEasy);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StartWindow";
-            this.Text = "StartWindow";
             this.ResumeLayout(false);
             this.PerformLayout();
 

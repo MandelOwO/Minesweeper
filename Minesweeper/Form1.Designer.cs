@@ -29,6 +29,7 @@ namespace Minesweeper
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.GameField = new System.Windows.Forms.PictureBox();
             this.BtnRestart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GameField)).BeginInit();
@@ -36,7 +37,6 @@ namespace Minesweeper
             // 
             // GameField
             // 
-            this.GameField.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GameField.Location = new System.Drawing.Point(12, 58);
             this.GameField.Name = "GameField";
             this.GameField.Size = new System.Drawing.Size(562, 362);
@@ -61,8 +61,9 @@ namespace Minesweeper
             this.ClientSize = new System.Drawing.Size(582, 442);
             this.Controls.Add(this.BtnRestart);
             this.Controls.Add(this.GameField);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Minesweeper";
             ((System.ComponentModel.ISupportInitialize)(this.GameField)).EndInit();
             this.ResumeLayout(false);
 

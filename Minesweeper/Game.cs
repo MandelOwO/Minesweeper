@@ -32,6 +32,7 @@ namespace Minesweeper
 
             GenerateFields();
             GenerateMines();
+            CountSurroundingMines();
         }
 
         private void PrepareMines()
@@ -82,7 +83,26 @@ namespace Minesweeper
                     }
                 }
             }
+        }
 
+        private void CountSurroundingMines()
+        {
+            foreach (var field in Fields)
+            {
+                for (int x = -1; x <= 1; x++)
+                {
+                    for (int y = -1; y <= 1; y++)
+                    {
+                        foreach (var checkingField in Fields)
+                        {
+                            if (field.IndexX + x == checkingField.IndexX && field.IndexY + y == checkingField.IndexY && checkingField.IsMine)
+                            {
+                                field.SurroundingMines++;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
