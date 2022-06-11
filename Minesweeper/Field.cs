@@ -12,10 +12,13 @@ namespace Minesweeper
         public int IndexY { get; set; }
         public int PositionX { get; set; }
         public int PositionY { get; set; }
-        public int Size { get; set; } = 20;
+        public static int Size { get; private set; } = 30;
         public bool IsFlag { get; set; }
         public int SurroundingMines { get; set; }
 
+        public Field(int idX, int idY, int posX, int posY)
+        {
 
+        }
     }
 }

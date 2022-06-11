@@ -12,7 +12,7 @@ namespace Minesweeper
 {
     public partial class StartWindow : Form
     {
-        public GameSetup GameSetup { get; set; }
+        public int Difficulty { get; set; }
 
         public StartWindow()
         {
@@ -21,7 +21,27 @@ namespace Minesweeper
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
+            if (RbtnEasy.Checked)
+            {
+                Difficulty = 1;
+            }
+            else if (RbtnMedium.Checked)
+            {
+                Difficulty = 2;
+            }
+            else if (RbtnHard.Checked)
+            {
+                Difficulty = 3;
+            }
 
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

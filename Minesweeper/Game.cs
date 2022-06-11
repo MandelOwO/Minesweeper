@@ -20,6 +20,7 @@ namespace Minesweeper
             GameHeightPx = FieldHeight * 20;
 
 
+
         }
 
         public void Draw()

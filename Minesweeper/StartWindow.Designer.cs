@@ -43,7 +43,6 @@
             this.RbtnEasy.Name = "RbtnEasy";
             this.RbtnEasy.Size = new System.Drawing.Size(48, 19);
             this.RbtnEasy.TabIndex = 1;
-            this.RbtnEasy.TabStop = true;
             this.RbtnEasy.Text = "Easy";
             this.RbtnEasy.UseVisualStyleBackColor = true;
             // 
@@ -59,6 +58,7 @@
             // RbtnMedium
             // 
             this.RbtnMedium.AutoSize = true;
+            this.RbtnMedium.Checked = true;
             this.RbtnMedium.Location = new System.Drawing.Point(24, 65);
             this.RbtnMedium.Name = "RbtnMedium";
             this.RbtnMedium.Size = new System.Drawing.Size(70, 19);
@@ -66,7 +66,6 @@
             this.RbtnMedium.TabStop = true;
             this.RbtnMedium.Text = "Medium";
             this.RbtnMedium.UseVisualStyleBackColor = true;
-
             // 
             // RbtnHard
             // 
@@ -75,10 +74,8 @@
             this.RbtnHard.Name = "RbtnHard";
             this.RbtnHard.Size = new System.Drawing.Size(51, 19);
             this.RbtnHard.TabIndex = 1;
-            this.RbtnHard.TabStop = true;
             this.RbtnHard.Text = "Hard";
             this.RbtnHard.UseVisualStyleBackColor = true;
-
             // 
             // BtnStart
             // 
@@ -96,8 +93,9 @@
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(75, 23);
             this.BtnClose.TabIndex = 5;
-            this.BtnClose.Text = "Close";
+            this.BtnClose.Text = "Quit";
             this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // StartWindow
             // 
