@@ -1,5 +1,4 @@
 # Minesweeper
 
-Shool project  
--------------  
+-> Shool project  
 WinForms GDI Minesweeper
