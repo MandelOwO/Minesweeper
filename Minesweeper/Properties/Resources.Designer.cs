@@ -61,32 +61,32 @@ namespace Minesweeper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap facingDown_30x30 {
+        internal static System.Drawing.Icon facingDown_30x30_ico {
             get {
-                object obj = ResourceManager.GetObject("facingDown_30x30", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("facingDown_30x30_ico", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap flagged_30x30 {
+        internal static System.Drawing.Icon flagged_30x30_ico {
             get {
-                object obj = ResourceManager.GetObject("flagged_30x30", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("flagged_30x30_ico", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap mine_30x30 {
+        internal static System.Drawing.Icon mine_30x30_ico {
             get {
-                object obj = ResourceManager.GetObject("mine_30x30", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("mine_30x30_ico", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

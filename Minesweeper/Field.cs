@@ -56,11 +56,11 @@ namespace Minesweeper
             {
                 try
                 {
-                    g.FillRectangle(Brushes.Red, PositionX, PositionY, Size, Size);
-                    /*
-                    Bitmap b = new Bitmap(Properties.Resources.mine_30x30);
-                    g.DrawIcon(Icon.FromHandle(b.GetHicon()), PositionX, PositionY);
-                    */
+                    g.FillRectangle(Brushes.DarkTurquoise, PositionX, PositionY, Size, Size);
+
+                    //Bitmap b = new Bitmap(Properties.Resources.mine_30x30);
+                    g.DrawIcon(Properties.Resources.mine_30x30_ico, PositionX, PositionY);
+
                 }
                 catch (Exception ex)
                 {
@@ -120,11 +120,11 @@ namespace Minesweeper
             {
                 try
                 {
-                    g.FillRectangle(Brushes.LightGray, PositionX, PositionY, Size, Size);
-                    /*
-                    Bitmap b = new Bitmap(Properties.Resources.facingDown_30x30);
-                    g.DrawIcon(Icon.FromHandle(b.GetHicon()), PositionX, PositionY);
-                    */
+                    //g.FillRectangle(Brushes.LightGray, PositionX, PositionY, Size, Size);
+
+                    //Bitmap b = new Bitmap(Properties.Resources.facingDown_30x30_gif);
+                    g.DrawIcon(Properties.Resources.facingDown_30x30_ico, PositionX, PositionY);
+
                 }
                 catch (Exception ex)
                 {
@@ -138,8 +138,7 @@ namespace Minesweeper
             }
             else if (IsFlag)
             {
-                Bitmap b = new Bitmap(Properties.Resources.flagged_30x30);
-                g.DrawIcon(Icon.FromHandle(b.GetHicon()), PositionX, PositionY);
+                g.DrawIcon(Properties.Resources.flagged_30x30_ico, PositionX, PositionY);
             }
         }
     }

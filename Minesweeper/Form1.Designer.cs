@@ -47,12 +47,17 @@ namespace Minesweeper
             // 
             // BtnRestart
             // 
-            this.BtnRestart.Image = global::Minesweeper.Properties.Resources.Smile_30x30;
+            this.BtnRestart.BackColor = System.Drawing.Color.Silver;
+            this.BtnRestart.BackgroundImage = global::Minesweeper.Properties.Resources.Smile_30x30;
+            this.BtnRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnRestart.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.BtnRestart.FlatAppearance.BorderSize = 0;
             this.BtnRestart.Location = new System.Drawing.Point(260, 12);
+            this.BtnRestart.Margin = new System.Windows.Forms.Padding(0);
             this.BtnRestart.Name = "BtnRestart";
             this.BtnRestart.Size = new System.Drawing.Size(40, 40);
             this.BtnRestart.TabIndex = 3;
-            this.BtnRestart.UseVisualStyleBackColor = true;
+            this.BtnRestart.UseVisualStyleBackColor = false;
             this.BtnRestart.Click += new System.EventHandler(this.BtnRestart_Click_1);
             // 
             // Form1
