@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Minesweeper
         private int MineCount { get; set; }
         private Random random { get; set; }
         public bool GameOver { get; set; } = false;
+
 
         public Game(int width, int height, int difficulty)
         {
@@ -49,8 +51,13 @@ namespace Minesweeper
 
         public void Draw(Graphics g)
         {
+            g.Clear(Color.GhostWhite);
             foreach (var field in Fields)
             {
+                if (GameOver)
+                {
+                    field.IsRevealed = true;
+                }
                 field.Draw(g);
             }
         }
@@ -116,11 +123,37 @@ namespace Minesweeper
                     field.IsRevealed = true;
                     if (field.IsMine)
                         GameOver = true;
-                    break;
+
                 }
             }
         }
 
+        public bool RevealSurroundingFields()
+        {
+            bool checkMore = false;
 
+            foreach (var field in Fields)
+            {
+                if (field.IsRevealed && field.SurroundingMines == 0)
+                {
+                    for (int x = -1; x <= 1; x++)
+                    {
+                        for (int y = -1; y <= 1; y++)
+                        {
+                            foreach (var checkingField in Fields)
+                            {
+                                if (field.IndexX + x == checkingField.IndexX && field.IndexY + y == checkingField.IndexY && checkingField.IsRevealed == false)
+                                {
+                                    checkingField.IsRevealed = true;
+                                    checkMore = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return checkMore;
+        }
     }
 }

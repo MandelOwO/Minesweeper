@@ -35,7 +35,6 @@ namespace Minesweeper
         private void GameField_Paint(object sender, PaintEventArgs e)
         {
             Game.Draw(e.Graphics);
-
         }
 
         private void ShowSettingsDialog()
@@ -52,6 +51,7 @@ namespace Minesweeper
             ResizeWindow();
             Game = new Game(GameWidth, GameHeight, Difficulty);
             GameField.Refresh();
+            GameField.Enabled = true;
         }
 
         private void ResizeWindow()
@@ -98,6 +98,11 @@ namespace Minesweeper
             {
                 case MouseButtons.Left:
                     Game.Reveal(e.X, e.Y);
+                    bool checkMore = true;
+                    while (checkMore)
+                    {
+                        checkMore = Game.RevealSurroundingFields();
+                    }
                     break;
 
                 case MouseButtons.Right:
@@ -113,7 +118,8 @@ namespace Minesweeper
 
         public void GameOver()
         {
-            MessageBox.Show("Game over!");
+            //  MessageBox.Show("Game over!");
+            GameField.Enabled = false;
         }
     }
 }

@@ -49,6 +49,9 @@ namespace Minesweeper
 
         private void DrawNumbers(Graphics g)
         {
+            if (!IsRevealed)
+                return;
+
             if (IsMine)
             {
                 try
@@ -61,9 +64,11 @@ namespace Minesweeper
                 }
                 catch (Exception ex)
                 {
-                    throw;
+
+                    // throw;
                     MessageBox.Show(ex.Message);
                     Application.Exit();
+
                 }
 
             }
@@ -104,6 +109,8 @@ namespace Minesweeper
 
         private void DrawNumber(Graphics g, Brush b, int mines)
         {
+            if (!IsRevealed)
+                return;
             g.DrawString(mines.ToString(), this.Font, b, PositionX + Size / 5, PositionY + Size / 5);
         }
 
@@ -121,9 +128,11 @@ namespace Minesweeper
                 }
                 catch (Exception ex)
                 {
-                    throw;
+
+                    // throw;
                     MessageBox.Show(ex.Message);
                     Application.Exit();
+
                 }
 
             }
