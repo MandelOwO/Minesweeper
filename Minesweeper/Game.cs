@@ -17,7 +17,8 @@ namespace Minesweeper
         private int GameWidthPx { get; set; }
         private int GameHeightPx { get; set; }
         private int Difficulty { get; set; }
-        private int MineCount { get; set; }
+        public int MineCount { get; set; }
+        public int FlagsPlaced { get; set; }
         private Random random { get; set; }
         public bool GameOver { get; set; } = false;
 
@@ -128,6 +129,27 @@ namespace Minesweeper
             }
         }
 
+        public void SetFlag(int x, int y)
+        {
+            foreach (var field in Fields)
+            {
+                if (x > field.PositionX && x < field.PositionX + Field.Size && y > field.PositionY &&
+                    y < field.PositionY + Field.Size)
+                {
+                    if (!field.IsFlag)
+                    {
+                        field.IsFlag = true;
+                        FlagsPlaced++;
+                    }
+                    else
+                    {
+                        field.IsFlag = false;
+                        FlagsPlaced--;
+                    }
+
+                }
+            }
+        }
         public bool RevealSurroundingFields()
         {
             bool checkMore = false;

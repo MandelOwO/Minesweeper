@@ -17,6 +17,7 @@ namespace Minesweeper
         private int Difficulty { get; set; }
         private int GameWidth { get; set; }
         private int GameHeight { get; set; }
+        public int Time { get; set; }
 
         private const int EASYWIDTH = 9;
         private const int EASYHEIGHT = 9;
@@ -24,6 +25,7 @@ namespace Minesweeper
         private const int MEDIUHEIGHT = 16;
         private const int HARDWIDTH = 30;
         private const int HARDHEIGHT = 16;
+
 
         public Form1()
         {
@@ -39,6 +41,8 @@ namespace Minesweeper
 
         private void ShowSettingsDialog()
         {
+            timer.Stop();
+
             StartWindow settings = new StartWindow();
             if (settings.ShowDialog() == DialogResult.OK)
             {
@@ -48,10 +52,14 @@ namespace Minesweeper
             {
                 Application.Exit();
             }
+
+            LabTimer.Text = "000";
             ResizeWindow();
             Game = new Game(GameWidth, GameHeight, Difficulty);
+            LabMines.Text = Game.MineCount.ToString();
             GameField.Refresh();
             GameField.Enabled = true;
+            Time = 0;
         }
 
         private void ResizeWindow()
@@ -81,7 +89,7 @@ namespace Minesweeper
                     break;
             }
             BtnRestart.Location = new Point(GameField.Width / 2 - 10, 12);
-
+            LabTimer.Location = new Point(GameField.Width - 80, 20);
             this.Height = GameField.Height + 100;
             this.Width = GameField.Width + 40;
         }
@@ -94,6 +102,7 @@ namespace Minesweeper
 
         private void GameField_MouseClick_1(object sender, MouseEventArgs e)
         {
+            timer.Start();
             switch (e.Button)
             {
                 case MouseButtons.Left:
@@ -106,11 +115,11 @@ namespace Minesweeper
                     break;
 
                 case MouseButtons.Right:
-
+                    Game.SetFlag(e.X, e.Y);
                     break;
             }
             GameField.Refresh();
-
+            LabMines.Text = Convert.ToString(Game.MineCount - Game.FlagsPlaced);
             if (Game.GameOver)
                 GameOver();
 
@@ -120,6 +129,13 @@ namespace Minesweeper
         {
             //  MessageBox.Show("Game over!");
             GameField.Enabled = false;
+            timer.Stop();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Time++;
+            LabTimer.Text = Time.ToString();
         }
     }
 }

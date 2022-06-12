@@ -116,7 +116,7 @@ namespace Minesweeper
 
         private void DrawTopLayer(Graphics g)
         {
-            if (!IsRevealed)
+            if (!IsRevealed && !IsFlag)
             {
                 try
                 {
