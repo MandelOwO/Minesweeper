@@ -63,6 +63,26 @@ namespace Minesweeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap facingDown_30x30 {
+            get {
+                object obj = ResourceManager.GetObject("facingDown_30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flagged_30x30 {
+            get {
+                object obj = ResourceManager.GetObject("flagged_30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mine_30x30 {
             get {
                 object obj = ResourceManager.GetObject("mine_30x30", resourceCulture);
@@ -73,29 +93,9 @@ namespace Minesweeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Smile_20x19 {
-            get {
-                object obj = ResourceManager.GetObject("Smile_20x19", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Smile_30x30 {
             get {
                 object obj = ResourceManager.GetObject("Smile_30x30", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Smile_30x301 {
-            get {
-                object obj = ResourceManager.GetObject("Smile_30x301", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

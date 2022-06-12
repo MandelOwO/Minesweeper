@@ -45,6 +45,7 @@ namespace Minesweeper
                 _ => MineCount
             };
         }
+
         public void Draw(Graphics g)
         {
             foreach (var field in Fields)
@@ -101,6 +102,17 @@ namespace Minesweeper
                             }
                         }
                     }
+                }
+            }
+        }
+
+        public void Reveal(int x, int y)
+        {
+            foreach (var field in Fields)
+            {
+                if (true)
+                {
+
                 }
             }
         }

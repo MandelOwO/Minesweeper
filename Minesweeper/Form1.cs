@@ -82,12 +82,26 @@ namespace Minesweeper
 
             this.Height = GameField.Height + 100;
             this.Width = GameField.Width + 40;
-
         }
 
         private void BtnRestart_Click_1(object sender, EventArgs e)
         {
             ShowSettingsDialog();
+        }
+
+        private void GameField_MouseClick(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    Game.Reveal(e.X, e.Y);
+                    break;
+
+                case MouseButtons.Right:
+
+                    break;
+            }
+            GameField.Refresh();
         }
     }
 }

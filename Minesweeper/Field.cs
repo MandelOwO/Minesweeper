@@ -17,6 +17,8 @@ namespace Minesweeper
         public int PositionY { get; set; }
         public static int Size { get; private set; } = 30;
         public bool IsMine { get; set; }
+        public bool IsFlag { get; set; }
+        public bool IsRevealed { get; set; }
         public int SurroundingMines { get; set; }
         public Font Font { get; set; } = new Font(FontFamily.GenericMonospace, 15);
 
@@ -42,7 +44,7 @@ namespace Minesweeper
 
         private void DrawGrid(Graphics g)
         {
-            g.DrawRectangle(Pens.Gray, PositionX, PositionY, Size, Size);
+            g.DrawRectangle(Pens.LightGray, PositionX, PositionY, Size, Size);
         }
 
         private void DrawNumbers(Graphics g)
@@ -95,7 +97,16 @@ namespace Minesweeper
 
         private void DrawTopLayer(Graphics g)
         {
-
+            if (!IsRevealed)
+            {
+                Bitmap b = new Bitmap(Properties.Resources.facingDown_30x30);
+                g.DrawIcon(Icon.FromHandle(b.GetHicon()), PositionX, PositionY);
+            }
+            else if (IsFlag)
+            {
+                Bitmap b = new Bitmap(Properties.Resources.flagged_30x30);
+                g.DrawIcon(Icon.FromHandle(b.GetHicon()), PositionX, PositionY);
+            }
         }
     }
 }
