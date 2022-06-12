@@ -44,16 +44,28 @@ namespace Minesweeper
 
         private void DrawGrid(Graphics g)
         {
-            g.DrawRectangle(Pens.LightGray, PositionX, PositionY, Size, Size);
+            g.DrawRectangle(Pens.Gray, PositionX, PositionY, Size, Size);
         }
 
         private void DrawNumbers(Graphics g)
         {
             if (IsMine)
             {
-                g.FillRectangle(Brushes.Red, PositionX, PositionY, Size, Size);
-                Bitmap b = new Bitmap(Properties.Resources.mine_30x30);
-                g.DrawIcon(Icon.FromHandle(b.GetHicon()), PositionX, PositionY);
+                try
+                {
+                    g.FillRectangle(Brushes.Red, PositionX, PositionY, Size, Size);
+                    /*
+                    Bitmap b = new Bitmap(Properties.Resources.mine_30x30);
+                    g.DrawIcon(Icon.FromHandle(b.GetHicon()), PositionX, PositionY);
+                    */
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                    MessageBox.Show(ex.Message);
+                    Application.Exit();
+                }
+
             }
             else
             {
@@ -99,8 +111,21 @@ namespace Minesweeper
         {
             if (!IsRevealed)
             {
-                Bitmap b = new Bitmap(Properties.Resources.facingDown_30x30);
-                g.DrawIcon(Icon.FromHandle(b.GetHicon()), PositionX, PositionY);
+                try
+                {
+                    g.FillRectangle(Brushes.LightGray, PositionX, PositionY, Size, Size);
+                    /*
+                    Bitmap b = new Bitmap(Properties.Resources.facingDown_30x30);
+                    g.DrawIcon(Icon.FromHandle(b.GetHicon()), PositionX, PositionY);
+                    */
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                    MessageBox.Show(ex.Message);
+                    Application.Exit();
+                }
+
             }
             else if (IsFlag)
             {

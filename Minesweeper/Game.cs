@@ -18,6 +18,7 @@ namespace Minesweeper
         private int Difficulty { get; set; }
         private int MineCount { get; set; }
         private Random random { get; set; }
+        public bool GameOver { get; set; } = false;
 
         public Game(int width, int height, int difficulty)
         {
@@ -110,11 +111,16 @@ namespace Minesweeper
         {
             foreach (var field in Fields)
             {
-                if (true)
+                if (x > field.PositionX && x < field.PositionX + Field.Size && y > field.PositionY && y < field.PositionY + Field.Size)
                 {
-
+                    field.IsRevealed = true;
+                    if (field.IsMine)
+                        GameOver = true;
+                    break;
                 }
             }
         }
+
+
     }
 }

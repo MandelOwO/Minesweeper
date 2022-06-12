@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,7 @@ namespace Minesweeper
         private void GameField_Paint(object sender, PaintEventArgs e)
         {
             Game.Draw(e.Graphics);
+
         }
 
         private void ShowSettingsDialog()
@@ -89,7 +91,8 @@ namespace Minesweeper
             ShowSettingsDialog();
         }
 
-        private void GameField_MouseClick(object sender, MouseEventArgs e)
+
+        private void GameField_MouseClick_1(object sender, MouseEventArgs e)
         {
             switch (e.Button)
             {
@@ -102,6 +105,15 @@ namespace Minesweeper
                     break;
             }
             GameField.Refresh();
+
+            if (Game.GameOver)
+                GameOver();
+
+        }
+
+        public void GameOver()
+        {
+            MessageBox.Show("Game over!");
         }
     }
 }

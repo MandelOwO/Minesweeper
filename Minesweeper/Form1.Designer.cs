@@ -43,6 +43,7 @@ namespace Minesweeper
             this.GameField.TabIndex = 1;
             this.GameField.TabStop = false;
             this.GameField.Paint += new System.Windows.Forms.PaintEventHandler(this.GameField_Paint);
+            this.GameField.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameField_MouseClick_1);
             // 
             // BtnRestart
             // 
