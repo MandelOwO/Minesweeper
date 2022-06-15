@@ -31,7 +31,6 @@ namespace Minesweeper
         {
             InitializeComponent();
             ShowSettingsDialog();
-
         }
 
         private void GameField_Paint(object sender, PaintEventArgs e)
@@ -118,14 +117,20 @@ namespace Minesweeper
                     Game.SetFlag(e.X, e.Y);
                     break;
             }
+            Game.CheckVictory();
             GameField.Refresh();
             LabMines.Text = Convert.ToString(Game.MineCount - Game.FlagsPlaced);
             if (Game.GameOver)
-                GameOver();
-
+            {
+                StopGame();
+            } else if (Game.Victory)
+            {
+                StopGame();
+                MessageBox.Show("You won!");
+            }
         }
 
-        public void GameOver()
+        public void StopGame()
         {
             //  MessageBox.Show("Game over!");
             GameField.Enabled = false;

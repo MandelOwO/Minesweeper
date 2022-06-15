@@ -21,6 +21,7 @@ namespace Minesweeper
         public int FlagsPlaced { get; set; }
         private Random random { get; set; }
         public bool GameOver { get; set; } = false;
+        public bool Victory { get; set; } = false;
 
 
         public Game(int width, int height, int difficulty)
@@ -134,7 +135,7 @@ namespace Minesweeper
             foreach (var field in Fields)
             {
                 if (x > field.PositionX && x < field.PositionX + Field.Size && y > field.PositionY &&
-                    y < field.PositionY + Field.Size)
+                    y < field.PositionY + Field.Size && !field.IsRevealed)
                 {
                     if (!field.IsFlag)
                     {
@@ -146,7 +147,6 @@ namespace Minesweeper
                         field.IsFlag = false;
                         FlagsPlaced--;
                     }
-
                 }
             }
         }
@@ -176,6 +176,28 @@ namespace Minesweeper
             }
 
             return checkMore;
+        }
+
+        public void CheckVictory()
+        {
+            if (FlagsPlaced==MineCount)
+            {
+                int mineCounter = 0;
+                foreach (var field in Fields)
+                {
+                    if (field.IsMine && field.IsFlag)
+                    {
+                        mineCounter++;
+                    }
+                }
+
+                if (mineCounter == MineCount)
+                {
+                    Victory = true;
+                }
+            }
+
+
         }
     }
 }
