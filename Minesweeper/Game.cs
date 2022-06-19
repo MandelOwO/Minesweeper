@@ -180,7 +180,7 @@ namespace Minesweeper
 
         public void CheckVictory()
         {
-            if (FlagsPlaced==MineCount)
+            if (FlagsPlaced == MineCount)
             {
                 int mineCounter = 0;
                 foreach (var field in Fields)
@@ -196,8 +196,22 @@ namespace Minesweeper
                     Victory = true;
                 }
             }
+            else
+            {
+                int c = 0;
+                foreach (var field in Fields)
+                {
+                    if (!field.IsRevealed)
+                    {
+                        c++;
+                    }
+                }
 
-
+                if (c == MineCount)
+                {
+                    Victory = true;
+                }
+            }
         }
     }
 }
